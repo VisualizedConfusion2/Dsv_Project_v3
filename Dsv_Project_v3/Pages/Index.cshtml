@@ -30,7 +30,14 @@
                     <td>@meetingRoom.Floor. sal</td>
                     <td>@(meetingRoom.IsAvailable ? "Ledig" : "Optaget")</td>
                     <td>
-                        <button class="btn btn-primary">Book</button>
+                        @if (meetingRoom.IsAvailable)
+                        {
+                            <a class="btn btn-primary" asp-page="/Booking" asp-route-roomName="@meetingRoom.Name">Book</a>
+                        }
+                        else
+                        {
+                            <button class="btn btn-secondary" disabled>Optaget</button>
+                        }
                     </td>
                 </tr>
             }

@@ -9,9 +9,9 @@ namespace Dsv_Project_v3.Repo
 
         public RoomCollectionRepo()
         {
-            _meetingRoom.Add(new MeetingRoom(1, "Alfa", "Tavle", 1, 2, true));
-            _meetingRoom.Add(new MeetingRoom(2, "Beta", "Tavle", 2, 2, true));
-            _meetingRoom.Add(new MeetingRoom(3, "Delta", "Tavle", 3, 2, true));
+            _meetingRoom.Add(new MeetingRoom(1, "Alfa", "Tavle", 1, 2, true,"","",""));
+            _meetingRoom.Add(new MeetingRoom(2, "Beta", "Tavle", 2, 2, true, "", "", ""));
+            _meetingRoom.Add(new MeetingRoom(3, "Delta", "Tavle", 3, 2, true, "", "", ""));
         }
         public List<MeetingRoom> GetAll()
         {
@@ -32,6 +32,11 @@ namespace Dsv_Project_v3.Repo
                 }
             }
             return null;
+        }
+
+        public void Update(MeetingRoom room)
+        {
+            throw new NotImplementedException();
         }
     }
 }

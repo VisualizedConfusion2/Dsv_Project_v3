@@ -1,3 +1,6 @@
+using Dsv_Project_v3.Repo;
+using Dsv_Project_v3.Services;
+
 namespace Dsv_Project_v3
 {
     public class Program
@@ -8,6 +11,9 @@ namespace Dsv_Project_v3
 
             // Add services to the container.
             builder.Services.AddRazorPages();
+
+            builder.Services.AddSingleton<IRoomRepo, RoomCollectionRepo>();
+            builder.Services.AddSingleton<RoomServices>();
 
             var app = builder.Build();
 

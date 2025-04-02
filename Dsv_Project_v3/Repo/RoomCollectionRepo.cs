@@ -9,9 +9,9 @@ namespace Dsv_Project_v3.Repo
 
         public RoomCollectionRepo()
         {
-            _meetingRoom.Add(new MeetingRoom(1, "Buster", "Verdens sødeste kat", "flatten.jpg", 2));
-            _meetingRoom.Add(new MeetingRoom(2, "Simba", "En stor mis", "Simba21-1024x683.jpg", 2));
-            _meetingRoom.Add(new MeetingRoom(3, "Adolf", "En tysk kat", "tyskkat.jpg", 2));
+            _meetingRoom.Add(new MeetingRoom(1, "Alfa", "Tavle", 1, 2, true));
+            _meetingRoom.Add(new MeetingRoom(2, "Beta", "Tavle", 2, 2, true));
+            _meetingRoom.Add(new MeetingRoom(3, "Delta", "Tavle", 3, 2, true));
         }
         public List<MeetingRoom> GetAll()
         {

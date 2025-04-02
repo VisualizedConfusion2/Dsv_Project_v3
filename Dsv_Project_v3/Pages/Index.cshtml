@@ -3,9 +3,38 @@
 @{
     ViewData["Title"] = "Home page";
 }
+<div class="container mt-5">
+    <h1 class="text-center">Velkommen til DSV Mødelokale Booking</h1>
+    <p class="text-center">Book og administrer dine mødelokaler hurtigt og nemt.</p>
 
-<div class="text-center">
-    <h1 class="display-4">Lokaler</h1>
-    <p>Learn about <a href="https://learn.microsoft.com/aspnet/core">building Web apps with ASP.NET Core</a>.</p>
+    <h2 class="mt-5">Tilgængelige Mødelokaler</h2>
+
+    <table class="table table-striped mt-3">
+        <thead>
+            <tr>
+                <th>Navn</th>
+                <th>Kapacitet</th>
+                <th>Udstyr</th>
+                <th>Etage</th>
+                <th>Status</th>
+                <th>Handling</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var meetingRoom in Model.MeetingRooms)
+            {
+                <tr>
+                    <td>@meetingRoom.Name</td>
+                    <td>@meetingRoom.Nrpersons Personer</td>
+                    <td>@meetingRoom.Equipment</td>
+                    <td>@meetingRoom.Floor. sal</td>
+                    <td>@(meetingRoom.IsAvailable ? "Ledig" : "Optaget")</td>
+                    <td>
+                        <button class="btn btn-primary">Book</button>
+                    </td>
+                </tr>
+            }
+        </tbody>
+    </table>
 </div>
  

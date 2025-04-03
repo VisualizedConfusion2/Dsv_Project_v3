@@ -4,7 +4,7 @@ using System.Diagnostics;
 
 namespace Dsv_Project_v3.Repo
 {
-    public class RoomCollectionRepository : IRoomRepository
+    public class RoomCollectionRepo : IRoomRepo
     {
         List<MeetingRoom> _rooms = new List<MeetingRoom>();
 

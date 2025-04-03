@@ -32,7 +32,7 @@
                     <td>
                         @if (meetingRoom.IsAvailable)
                         {
-                            <a class="btn btn-primary" asp-page="/Booking" asp-route-roomName="@meetingRoom.Name">Book</a>
+                            <a class="btn" style="background-color: darkblue; color: white;" asp-page="/Booking" asp-route-roomName="@meetingRoom.Name">Book</a>
                         }
                         else
                         {

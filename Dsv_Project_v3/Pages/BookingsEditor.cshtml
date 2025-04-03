@@ -1,4 +1,45 @@
-﻿@page
+﻿@* @page
 @model Dsv_Project_v3.Pages.BookingsEditorModel
 @{
 }
+<div class="container mt-5">
+    <h1 class="text-center">Din bookingoversigt</h1>
+    <p class="text-center">Her kan du finde og redigere dine bookinger</p>
+
+    <h2 class="mt-5">Dine bookinger</h2>
+
+    <table class="table table-striped mt-3">
+        <thead>
+            <tr>
+                <th>Navn</th>
+                <th>Kapacitet</th>
+                <th>Udstyr</th>
+                <th>Etage</th>
+                <th>Status</th>
+                <th>Handling</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var booking in Model.Bookings)
+            {
+                <tr>
+                    <td>@booking.Name</td>
+                    <td>@booking.Nrpersons Personer</td>
+                    <td>@booking.Equipment</td>
+                    <td>@booking.Floor. sal</td>
+                    <td>@(booking.IsAvailable ? "Ledig" : "Optaget")</td>
+                    <td>
+                        @if (booking.IsAvailable)
+                        {
+                            <a class="btn" style="background-color: darkblue; color: white;" asp-page="/Booking" asp-route-roomName="@meetingRoom.Name">Book</a>
+                        }
+                        else
+                        {
+                            <button class="btn btn-secondary" disabled>Optaget</button>
+                        }
+                    </td>
+                </tr>
+            }
+        </tbody>
+    </table>
+</div> *@

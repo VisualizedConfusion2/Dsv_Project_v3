@@ -6,16 +6,16 @@ namespace Dsv_Project_v3.Repo
 {
     public class RoomCollectionRepository : IRoomRepository
     {
-        List<Room> _rooms = new List<Room>();
+        List<MeetingRoom> _rooms = new List<MeetingRoom>();
 
-        public void Add(Room room)
+        public void Add(MeetingRoom room)
         {
             _rooms.Add(room);
         }
 
-        public Room Get(int id)
+        public MeetingRoom Get(int id)
         {
-            foreach (Room room in _rooms)
+            foreach (MeetingRoom room in _rooms)
             {
                 if (id == room.ID)
                 {

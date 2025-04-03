@@ -3,45 +3,71 @@
 @{
     ViewData["Title"] = "";
 }
-<div class="container mt-5">
-    <h1 class="text-center">Velkommen til DSV Mødelokale Booking</h1>
-    <p class="text-center">Book og administrer dine mødelokaler hurtigt og nemt.</p>
+<!--Filtrering-->
+<header class="container-fluid bg-light">
 
-    <h2 class="mt-5">Tilgængelige Mødelokaler</h2>
+    <h3 style="font-weight: bold; color: #192862">Filtrering</h3>
+    <form method="post" asp-page-handler="Filter" name="Filter" id="Filter">
 
-    <table class="table table-striped mt-3">
-        <thead>
-            <tr>
-                <th>Navn</th>
-                <th>Kapacitet</th>
-                <th>Udstyr</th>
-                <th>Etage</th>
-                <th>Status</th>
-                <th>Handling</th>
-            </tr>
-        </thead>
-        <tbody>
-            @foreach (var meetingRoom in Model.MeetingRooms)
-            {
-                <tr>
-                    <td>@meetingRoom.Name</td>
-                    <td>@meetingRoom.Capacity</td>
-                    <td>@meetingRoom.Whiteboard</td>
-                    <td>@meetingRoom.SmartBoard</td>
-                    <td>@(meetingRoom.IsAvailable ? "Ledig" : "Optaget")</td>
-                    <td>
-                        @if (meetingRoom.IsAvailable)
-                        {
-                            <a class="btn" style="background-color: darkblue; color: white;" asp-page="/Booking" asp-route-roomName="@meetingRoom.Name">Book</a>
-                        }
-                        else
-                        {
-                            <button class="btn btn-secondary" disabled>Optaget</button>
-                        }
-                    </td>
-                </tr>
-            }
-        </tbody>
-    </table>
+        <label for="filterWB" class="control-label">Whiteboard: </label>
+        <input class="me-4" asp-for="filterWB" type="checkbox" id="whiteboard" name="filterWB" value="true">
+        <label for="filterSB" class="control-label">Smartboard: </label>
+        <input class="me-4" asp-for="filterSB" type="checkbox" id="smartboard" name="filterSB" value="true">
+        <label for="filterCap" class="control-label">Antal deltagere: </label>
+        <input class="" asp-for="filterCap" type="number" id="capacity" name="filterCap" value="0" />
+        <button type="submit" class="btn btn-primary">Filtrér</button>
+    </form>
+
+</header>
+
+<div class="container">
+    <!--ROOM CARDS-->
+    <div class="row row-cols-3">
+        @foreach (var room in Model.Rooms)
+        {
+
+
+            <form method="post">
+                <div class="col">
+                    <div class="card shadow-sm mt-3">
+                        <div class="card-body text-start">
+
+                            <h5 class="card-title text-center"><b>@room.Name</b></h5>
+                            <img src="Media/@room.ImgPath" class="card-img-top" alt="Room Image">
+                            <p class="card-text"><i>Max @room.Capacity personer.</i></p>
+                            <div class="row">
+                                <div class="col mt-1">
+                                    <p class="card-text">Max: @room.Capacity personer </p>
+                                    <p class="card-text">Whiteboard @(room.Whiteboard ? "✅" : "❌")</p>
+                                    <p class="card-text">Smartboard: @(room.SmartBoard ? "✅" : "❌")</p>
+
+                                </div>
+
+                                <div class="col">
+                                    <div class="d-flex justify-content-end gap-3 mt-2">
+                                        <input type="hidden" value="@room.ID" name="idroom" />
+                                        <button class="btn btn-outline-primary" title="Book">
+                                            Book room
+                                        </button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class=" row row-cols-5">
+                            @for (int i = 7; i < 17; i++)
+                            {
+                                var bgColor = Model.BookChecker(i, room.ID) ? "color: red;" : "color: green;";
+                                <div class="col text-center" style="@bgColor">
+                                    <p>@i:00</p>
+                                </div>
+                            }
+                        </div>
+                    </div>
+                </div>
+            </form>
+
+
+        }
+    </div>
 </div>
  

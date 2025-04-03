@@ -5,32 +5,37 @@ namespace Dsv_Project_v3.Models
 {
     public class MeetingRoom
     {
-        public int ID { set; get; }
+        private static int _tempID = 1; // instance
+
         public string Name { get; set; }
-        public int Nrpersons { get; set; }
-        public string Equipment { get; set; }
-        public int Floor { get; set; }
-        public bool IsAvailable { get; set; } = true;
-        public string BookingDate { get; set; }
-        public string BookingStartTime { get; set; }
-        public string BookingEndTime { get; set; }
-        public string Comment { get; set; }
+        public int ID { get; set; }
+        public int Capacity { get; set; }
+        public bool Whiteboard { get; set; }
+        public bool SmartBoard { get; set; }
+
 
         public MeetingRoom()
         {
-
+            Name = "test";
+            ID = _tempID++;
+            Capacity = 0;
+            Whiteboard = false;
+            SmartBoard = false;
         }
-        public MeetingRoom(int iD, string name, string equipment, int floor, int nrpersons, bool isAvailable, string bookingDate, string bookingStartTime, string bookingEndTime)
+
+
+        // Default Contructor for a room without equipment
+        public MeetingRoom(string name, int cap) : this()
         {
-            ID = iD;
             Name = name;
-            Equipment = equipment;
-            Floor = floor;
-            Nrpersons = nrpersons;
-            IsAvailable = isAvailable;
-            BookingDate = bookingDate;
-            BookingStartTime = bookingStartTime;
-            BookingEndTime = bookingEndTime;
+            Capacity = cap;
+        }
+
+        // In depth Constructor with all proterties
+        public MeetingRoom(string name, int cap, bool whiteboard, bool smartboard) : this(name, cap)
+        {
+            Whiteboard = whiteboard;
+            SmartBoard = smartboard;
         }
     }
 }

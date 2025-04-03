@@ -10,7 +10,7 @@ namespace Dsv_Project_v3.Pages
         private readonly RoomServices _rs;
         private readonly BookingService _bs;
         [BindProperty]
-        public List<MeetingRoomBooking> Rooms { get; set; }
+        public List<MeetingRoom> Rooms { get; set; }
 
         public List<MeetingRoomBooking> Bookings { get; set; }
         List<MeetingRoomBooking> _activeBookings = new List<MeetingRoomBooking>();

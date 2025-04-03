@@ -1,5 +1,6 @@
 using Dsv_Project_v3.Repo;
 using Dsv_Project_v3.Services;
+using Dsv_Project_v3.Repo;
 
 namespace Dsv_Project_v3
 {
@@ -13,6 +14,7 @@ namespace Dsv_Project_v3
             builder.Services.AddRazorPages();
 
             builder.Services.AddSingleton<IRoomRepo, RoomCollectionRepo>();
+            builder.Services.AddSingleton<IBookingRepo, BookingCollectionRepo>();
             builder.Services.AddSingleton<RoomServices>();
 
             var app = builder.Build();

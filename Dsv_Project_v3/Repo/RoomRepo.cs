@@ -93,10 +93,10 @@ namespace Dsv_Project_v3.Repo
 
         public RoomRepo()
         {
-            _rooms.Add(new MeetingRoom("Alpha", 30, true, true, false));
-            _rooms.Add(new MeetingRoom("Beta", 60, true, true, false));
-            _rooms.Add(new MeetingRoom("Delta", 20, true, true, false));
-            _rooms.Add(new MeetingRoom("Gamma", 100, true, true, false));
+            _rooms.Add(new MeetingRoom("Alpha", 30, false, true, false));
+            _rooms.Add(new MeetingRoom("Beta", 60, true, true, true));
+            _rooms.Add(new MeetingRoom("Delta", 20, false, false, false));
+            _rooms.Add(new MeetingRoom("Gamma", 100, true, true, true));
             _rooms.Add(new MeetingRoom("Sigma", 20, true, true, false));
             _rooms.Add(new MeetingRoom("Mu", 50, true, true, true));
         }

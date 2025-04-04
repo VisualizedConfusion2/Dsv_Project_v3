@@ -38,6 +38,7 @@ namespace Dsv_Project_v3.Models
         {
             Tavle = tavle;
             Projecter = projecter;
+            Kaffemaskine = kaffemaskine;
 
         }
     }

@@ -75,7 +75,7 @@ namespace Dsv_Project_v3.Pages
         {
             MeetingRoom bound = _rs.Get(idroom);
 
-            return RedirectToPage("/Form", new { roomname = bound.ID });
+            return RedirectToPage("/Booking", new { roomname = bound.ID });
         }
     }
 }

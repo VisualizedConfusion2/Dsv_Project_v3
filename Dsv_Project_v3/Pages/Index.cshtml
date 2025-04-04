@@ -41,7 +41,7 @@
                                     <p class="card-text">Max: @room.Capacity personer </p>
                                     <p class="card-text">Tavle @(room.Tavle ? "+" : "-")</p>
                                     <p class="card-text">Projecter: @(room.Projecter ? "+" : "-")</p>
-
+                                    <p class="card-text">Kaffemaskine: @(room.Kaffemaskine ? "+" : "-")</p>
                                 </div>
 
                                 <div class="col">
@@ -55,11 +55,11 @@
                             </div>
                         </div>
                         <div class=" row row-cols-5">
-                            @for (int i = 7; i < 17; i++)
+                            @for (int i = 6; i < 18; i++)
                             {
                                 var bgColor = Model.BookChecker(i, room.ID) ? "color: red;" : "color: green;";
                                 <div class="col text-center" style="@bgColor">
-                                    <p>@i:00</p>
+                                    <p>@i:00-</p>
                                 </div>
                             }
                         </div>

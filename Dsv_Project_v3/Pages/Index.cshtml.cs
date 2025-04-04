@@ -7,6 +7,9 @@ namespace Dsv_Project_v3.Pages
 {
     public class IndexModel : PageModel
     {
+        private MeetingRoom[] _meetingRoom = new MeetingRoom[6];
+        IBookingRepo RoomRepo = new BookingCollectionRepo();
+
         private readonly RoomServices _rs;
         private readonly BookingService _bs;
         [BindProperty]

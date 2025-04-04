@@ -71,18 +71,11 @@ namespace Dsv_Project_v3.Pages
             Vacancy();
         }
 
-        //public IActionResult OnPostFilter()
-        //{
-        //    Rooms = _rs.Filter(filterCap, filterWB, filterSB);
-        //    return Page();
-        //}
-
-
         public IActionResult OnPost(int idroom)
         {
             MeetingRoom bound = _rs.Get(idroom);
 
-            return RedirectToPage("/Form", new { roomname = bound.ID });
+            return RedirectToPage("/Booking", new { roomname = bound.ID });
         }
     }
 }

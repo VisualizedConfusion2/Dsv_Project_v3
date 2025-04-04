@@ -86,19 +86,10 @@ namespace Dsv_Project_v3.Repo
                     }
                 }
             }
-            Debug.WriteLine("Testing the fucking filter" + projecter + tavle + kaffe + cap);
+            Debug.WriteLine("" + projecter + tavle + kaffe + cap);
             return filterRooms;
         }
 
-        List<MeetingRoom> IRoomRepo.GetAll()
-        {
-            throw new NotImplementedException();
-        }
-
-        public void Update(MeetingRoom room)
-        {
-            throw new NotImplementedException();
-        }
 
         public RoomRepo()
         {

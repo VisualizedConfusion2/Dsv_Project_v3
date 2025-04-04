@@ -7,12 +7,12 @@
 <header class="container-fluid bg-light">
     <h3 style="font-weight: bold; color: #192862">Filtrering</h3>
     <form method="post" asp-page-handler="Filter" name="Filter" id="Filter">
-        <label for="filterWB" class="control-label">Tavle: </label>
-        <input class="me-4" asp-for="filterWB" type="checkbox" id="tavle" name="filterWB" value="true">
-        <label for="filterSB" class="control-label">Projecter: </label>
-        <input class="me-4" asp-for="filterSB" type="checkbox" id="projecter" name="filterSB" value="true">
-        <label for="filterSB" class="control-label">Kaffemaskine: </label>
-        <input class="me-4" asp-for="filterSB" type="checkbox" id="kaffemaskine" name="filterSB" value="true">
+        <label for="filterTavle" class="control-label">Tavle: </label>
+        <input class="me-4" asp-for="filterTavle" type="checkbox" id="tavle" name="filterTavle" value="true">
+        <label for="filterProjecter" class="control-label">Projecter: </label>
+        <input class="me-4" asp-for="filterProjecter" type="checkbox" id="projecter" name="filterProjecter" value="true">
+        <label for="filterKM" class="control-label">Kaffemaskine: </label>
+        <input class="me-4" asp-for="filterKM" type="checkbox" id="kaffemaskine" name="filterKM" value="true">
         <label for="filterCap" class="control-label">Antal deltagere: </label>
         <input class="" asp-for="filterCap" type="number" id="capacity" name="filterCap" value="0" />
         <button type="submit" class="btn btn-primary">Filtrér</button>

@@ -17,7 +17,11 @@ namespace Dsv_Project_v3.Repo
 
         public void Delete(int bookingId)
         {
-            throw new NotImplementedException();
+            var booking = _meetingRoomBookings.FirstOrDefault(b => b.ID == bookingId);
+            if (booking != null)
+            {
+                _meetingRoomBookings.Remove(booking);
+            }
         }
 
         public List<MeetingRoomBooking> GetAll()

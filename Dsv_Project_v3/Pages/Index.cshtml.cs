@@ -23,9 +23,11 @@ namespace Dsv_Project_v3.Pages
         [BindProperty]
         public int filterCap { get; set; }
         [BindProperty]
-        public bool filterWB { get; set; }
+        public bool filterTavle { get; set; } 
         [BindProperty]
-        public bool filterSB { get; set; }
+        public bool filterProjecter { get; set; }
+        [BindProperty]
+        public bool filterKM { get; set; }
 
         private DateTime setDate = DateTime.Now;
 

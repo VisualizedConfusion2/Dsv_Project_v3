@@ -82,14 +82,14 @@ namespace Dsv_Project_v3.Repo
         }
 
         //room objects for testing purposes
-        public RoomCollectionRepository()
+        public RoomCollectionRepo()
         {
-            _rooms.Add(new Room("Alpha", 30, true, false, "conference1.jpg"));
-            _rooms.Add(new Room("Beta", 60, true, true, "conference2.jpg"));
-            _rooms.Add(new Room("Charlie", 20, true, false, "conference3.jpg"));
-            _rooms.Add(new Room("Delta", 100, true, true, "conference4.jpg"));
-            _rooms.Add(new Room("Echo", 20, false, false, "conference3.jpg"));
-            _rooms.Add(new Room("Foxtrot", 50, false, true, "conference1.jpg"));
+            _rooms.Add(new Room("Alpha", 30, true, false));
+            _rooms.Add(new Room("Beta", 60, true, true));
+            _rooms.Add(new Room("Charlie", 20, true, false));
+            _rooms.Add(new Room("Delta", 100, true, true));
+            _rooms.Add(new Room("Echo", 20, false, false));
+            _rooms.Add(new Room("Foxtrot", 50, false, true));
         }
     }
 }

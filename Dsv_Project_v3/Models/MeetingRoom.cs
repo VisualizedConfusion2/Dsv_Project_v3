@@ -5,7 +5,7 @@ namespace Dsv_Project_v3.Models
 {
     public class MeetingRoom
     {
-        private static int _CountID = 1; // instance
+        private static int _CountID = 1;
 
         public string Name { get; set; }
         public int ID { get; set; }

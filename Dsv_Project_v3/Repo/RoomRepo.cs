@@ -95,10 +95,10 @@ namespace Dsv_Project_v3.Repo
         {
             _rooms.Add(new MeetingRoom("Alpha", 30, true, true, false));
             _rooms.Add(new MeetingRoom("Beta", 60, true, true, false));
-            _rooms.Add(new MeetingRoom("Delta", 20, true, true, false));
-            _rooms.Add(new MeetingRoom("Gamma", 100, true, true, false));
-            _rooms.Add(new MeetingRoom("Sigma", 20, true, true, false));
-            _rooms.Add(new MeetingRoom("Mu", 50, true, true, false));
+            _rooms.Add(new MeetingRoom("Charlie", 20, true, true, false));
+            _rooms.Add(new MeetingRoom("Delta", 100, true, true, false));
+            _rooms.Add(new MeetingRoom("Echo", 20, true, true, false));
+            _rooms.Add(new MeetingRoom("Foxtrot", 50, true, true, false));
         }
     }
 }

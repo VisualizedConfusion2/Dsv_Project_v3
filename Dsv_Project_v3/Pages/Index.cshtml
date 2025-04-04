@@ -9,10 +9,12 @@
     <h3 style="font-weight: bold; color: #192862">Filtrering</h3>
     <form method="post" asp-page-handler="Filter" name="Filter" id="Filter">
 
-        <label for="filterWB" class="control-label">Whiteboard: </label>
-        <input class="me-4" asp-for="filterWB" type="checkbox" id="whiteboard" name="filterWB" value="true">
-        <label for="filterSB" class="control-label">Smartboard: </label>
-        <input class="me-4" asp-for="filterSB" type="checkbox" id="smartboard" name="filterSB" value="true">
+        <label for="filterWB" class="control-label">Tavle: </label>
+        <input class="me-4" asp-for="filterWB" type="checkbox" id="tavle" name="filterWB" value="true">
+        <label for="filterSB" class="control-label">Projecter: </label>
+        <input class="me-4" asp-for="filterSB" type="checkbox" id="projecter" name="filterSB" value="true">
+        <label for="filterSB" class="control-label">Kaffemaskine: </label>
+        <input class="me-4" asp-for="filterSB" type="checkbox" id="kaffemaskine" name="filterSB" value="true">
         <label for="filterCap" class="control-label">Antal deltagere: </label>
         <input class="" asp-for="filterCap" type="number" id="capacity" name="filterCap" value="0" />
         <button type="submit" class="btn btn-primary">Filtrér</button>
@@ -37,8 +39,8 @@
                             <div class="row">
                                 <div class="col mt-1">
                                     <p class="card-text">Max: @room.Capacity personer </p>
-                                    <p class="card-text">Whiteboard @(room.Whiteboard ? "+" : "-")</p>
-                                    <p class="card-text">Smartboard: @(room.SmartBoard ? "+" : "-")</p>
+                                    <p class="card-text">Tavle @(room.Tavle ? "+" : "-")</p>
+                                    <p class="card-text">Projecter: @(room.Projecter ? "+" : "-")</p>
 
                                 </div>
 

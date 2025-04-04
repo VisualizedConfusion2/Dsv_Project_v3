@@ -2,7 +2,6 @@
 {
     public class MeetingRoomBooking
     {
-        static int _tempID = 1;
         int _iD;
         int _meetingRoomID;
         DateTime _timeStart;
@@ -18,10 +17,10 @@
         public string Comment { get => _comment; set => _comment = value; }
 
 
-        //def constructor
+        static int _CountID = 1;
         public MeetingRoomBooking()
         {
-            _iD = _tempID++;
+            _iD = _CountID++;
             RoomID = 0;
             _timeStart = DateTime.Now.Date.AddHours(DateTime.Now.Hour);
             _endDateTime = DateTime.Now.Date.AddHours(DateTime.Now.Hour).AddHours(1);

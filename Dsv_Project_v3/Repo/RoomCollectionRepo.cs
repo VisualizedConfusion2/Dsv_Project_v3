@@ -30,37 +30,47 @@ namespace Dsv_Project_v3.Repo
             return _rooms;
         }
 
-        public List<Room> Filter(int cap, bool whiteb, bool smartb)
+        public List<Room> Filter(int cap, bool projecter, bool tavle, bool kaffe)
         {
             List<Room> filterRooms = new List<Room>();
 
-            if (smartb == true && whiteb == true)
+            if (projecter == true && tavle == true && kaffe == true)
             {
                 foreach (Room room in _rooms)
                 {
-                    if (room.SmartBoard && room.Capacity >= cap && room.Whiteboard)
+                    if (room.Projecter && room.Capacity >= cap && room.Tavle)
                     {
                         filterRooms.Add(room);
                     }
                 }
             }
 
-            else if (whiteb == true)
+            else if (tavle == true)
             {
                 foreach (Room room in _rooms)
                 {
-                    if (room.Whiteboard && room.Capacity >= cap)
+                    if (room.Tavle && room.Capacity >= cap)
                     {
                         filterRooms.Add(room);
                     }
                 }
             }
 
-            else if (smartb == true)
+            else if (projecter == true)
             {
                 foreach (Room room in _rooms)
                 {
-                    if (room.SmartBoard && room.Capacity >= cap)
+                    if (room.Projecter && room.Capacity >= cap)
+                    {
+                        filterRooms.Add(room);
+                    }
+                }
+            }
+            else if (kaffe == true)
+            {
+                foreach (Room room in _rooms)
+                {
+                    if (room.Kaffemaskine && room.Capacity >= cap)
                     {
                         filterRooms.Add(room);
                     }
@@ -77,11 +87,9 @@ namespace Dsv_Project_v3.Repo
                     }
                 }
             }
-            Debug.WriteLine("Testing the fucking filter" + whiteb + smartb + cap);
+            Debug.WriteLine("Testing the fucking filter" + projecter + tavle + kaffe + cap);
             return filterRooms;
         }
-
-        //room objects for testing purposes
         public RoomCollectionRepo()
         {
             _rooms.Add(new Room("Alpha", 30, true, false));

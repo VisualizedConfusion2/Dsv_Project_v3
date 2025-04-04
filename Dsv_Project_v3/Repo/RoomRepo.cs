@@ -37,7 +37,7 @@ namespace Dsv_Project_v3.Repo
             {
                 foreach (MeetingRoom room in _rooms)
                 {
-                    if (room.Projecter && room.Capacity >= cap && room.Tavle)
+                    if (room.Projecter && room.Capacity >= cap && room.Tavle && room.Kaffemaskine)
                     {
                         filterRooms.Add(room);
                     }
@@ -98,7 +98,7 @@ namespace Dsv_Project_v3.Repo
             _rooms.Add(new MeetingRoom("Delta", 20, true, true, false));
             _rooms.Add(new MeetingRoom("Gamma", 100, true, true, false));
             _rooms.Add(new MeetingRoom("Sigma", 20, true, true, false));
-            _rooms.Add(new MeetingRoom("Mu", 50, true, true, false));
+            _rooms.Add(new MeetingRoom("Mu", 50, true, true, true));
         }
     }
 }

@@ -13,7 +13,7 @@ namespace Dsv_Project_v3
             // Add services to the container.
             builder.Services.AddRazorPages();
 
-            builder.Services.AddSingleton<IRoomRepo>();
+            builder.Services.AddSingleton<IRoomRepo,RoomRepo>();
             builder.Services.AddSingleton<IBookingRepo, BookingCollectionRepo>();
             builder.Services.AddSingleton<RoomServices>();
 

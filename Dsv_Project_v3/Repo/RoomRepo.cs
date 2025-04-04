@@ -1,10 +1,9 @@
-﻿using Dsv_Project_v3.Repo;
-using Dsv_Project_v3.Models;
+﻿using Dsv_Project_v3.Models;
 using System.Diagnostics;
-
-namespace Dsv_Project_v3.Repo
+namespace Dsv_Project_v3.Repo 
 {
-    public class RoomCollectionRepo : IRoomRepo
+
+    public class RoomRepo : IRoomRepo
     {
         List<MeetingRoom> _rooms = new List<MeetingRoom>();
 
@@ -25,18 +24,18 @@ namespace Dsv_Project_v3.Repo
             return null;
         }
 
-        public List<Room> GetAll()
+        public List<MeetingRoom> GetAll()
         {
             return _rooms;
         }
 
-        public List<Room> Filter(int cap, bool projecter, bool tavle, bool kaffe)
+        public List<MeetingRoom> Filter(int cap, bool projecter, bool tavle, bool kaffe)
         {
-            List<Room> filterRooms = new List<Room>();
+            List<MeetingRoom> filterRooms = new List<MeetingRoom>();
 
             if (projecter == true && tavle == true && kaffe == true)
             {
-                foreach (Room room in _rooms)
+                foreach (MeetingRoom room in _rooms)
                 {
                     if (room.Projecter && room.Capacity >= cap && room.Tavle)
                     {
@@ -47,7 +46,7 @@ namespace Dsv_Project_v3.Repo
 
             else if (tavle == true)
             {
-                foreach (Room room in _rooms)
+                foreach (MeetingRoom room in _rooms)
                 {
                     if (room.Tavle && room.Capacity >= cap)
                     {
@@ -58,7 +57,7 @@ namespace Dsv_Project_v3.Repo
 
             else if (projecter == true)
             {
-                foreach (Room room in _rooms)
+                foreach (MeetingRoom room in _rooms)
                 {
                     if (room.Projecter && room.Capacity >= cap)
                     {
@@ -68,7 +67,7 @@ namespace Dsv_Project_v3.Repo
             }
             else if (kaffe == true)
             {
-                foreach (Room room in _rooms)
+                foreach (MeetingRoom room in _rooms)
                 {
                     if (room.Kaffemaskine && room.Capacity >= cap)
                     {
@@ -79,7 +78,7 @@ namespace Dsv_Project_v3.Repo
 
             else
             {
-                foreach (Room room in _rooms)
+                foreach (MeetingRoom room in _rooms)
                 {
                     if (room.Capacity >= cap)
                     {
@@ -90,14 +89,25 @@ namespace Dsv_Project_v3.Repo
             Debug.WriteLine("Testing the fucking filter" + projecter + tavle + kaffe + cap);
             return filterRooms;
         }
-        public RoomCollectionRepo()
+
+        List<MeetingRoom> IRoomRepo.GetAll()
         {
-            _rooms.Add(new Room("Alpha", 30, true, false));
-            _rooms.Add(new Room("Beta", 60, true, true));
-            _rooms.Add(new Room("Charlie", 20, true, false));
-            _rooms.Add(new Room("Delta", 100, true, true));
-            _rooms.Add(new Room("Echo", 20, false, false));
-            _rooms.Add(new Room("Foxtrot", 50, false, true));
+            throw new NotImplementedException();
+        }
+
+        public void Update(MeetingRoom room)
+        {
+            throw new NotImplementedException();
+        }
+
+        public RoomRepo()
+        {
+            _rooms.Add(new MeetingRoom("Alpha", 30, true, true, false));
+            _rooms.Add(new MeetingRoom("Beta", 60, true, true, false));
+            _rooms.Add(new MeetingRoom("Charlie", 20, true, true, false));
+            _rooms.Add(new MeetingRoom("Delta", 100, true, true, false));
+            _rooms.Add(new MeetingRoom("Echo", 20, true, true, false));
+            _rooms.Add(new MeetingRoom("Foxtrot", 50, true, true, false));
         }
     }
 }

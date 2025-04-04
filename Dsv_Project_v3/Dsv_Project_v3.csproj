@@ -6,12 +6,4 @@
     <ImplicitUsings>enable</ImplicitUsings>
   </PropertyGroup>
 
-  <ItemGroup>
-    <Compile Remove="Repo\RoomCollectionRepo.cs" />
-  </ItemGroup>
-
-  <ItemGroup>
-    <Content Include="Repo\RoomCollectionRepo.cs" />
-  </ItemGroup>
-
 </Project>

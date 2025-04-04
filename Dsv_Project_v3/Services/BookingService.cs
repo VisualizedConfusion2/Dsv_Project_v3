@@ -6,7 +6,13 @@ namespace Dsv_Project_v3.Services
 {
     public class BookingService
     {
-        private IBookingRepo _bookingRepo;
+        private readonly IBookingRepo _bookingRepo;
+
+        // Konstruktør der injicerer IBookingRepo
+        public BookingService(IBookingRepo bookingRepo)
+        {
+            _bookingRepo = bookingRepo ?? throw new ArgumentNullException(nameof(bookingRepo));
+        }
 
         public List<MeetingRoomBooking> GetAll()
         {
@@ -23,20 +29,15 @@ namespace Dsv_Project_v3.Services
             _bookingRepo.Delete(bookingId);
         }
 
-        //Method to update the booking list
         public void UpdateBooking(MeetingRoomBooking updatedBooking)
         {
-            // Find the existing booking by ID
             var existingBooking = _bookingRepo.GetAll().FirstOrDefault(b => b.ID == updatedBooking.ID);
             Debug.WriteLine(updatedBooking.ID);
             if (existingBooking != null)
             {
-                // Replace the old booking's values with the new ones
                 existingBooking.StartDateTime = updatedBooking.StartDateTime;
                 existingBooking.EndDateTime = updatedBooking.EndDateTime;
                 existingBooking.Comment = updatedBooking.Comment;
-
-                // In a real scenario, you might save changes to a database here
             }
         }
     }

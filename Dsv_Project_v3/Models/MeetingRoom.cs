@@ -5,22 +5,24 @@ namespace Dsv_Project_v3.Models
 {
     public class MeetingRoom
     {
-        private static int _tempID = 1; // instance
+        private static int _CountID = 1; // instance
 
         public string Name { get; set; }
         public int ID { get; set; }
         public int Capacity { get; set; }
-        public bool Whiteboard { get; set; }
-        public bool SmartBoard { get; set; }
+        public bool Tavle { get; set; }
+        public bool Projecter { get; set; }
+        public bool Kaffemaskine { get; set; }
 
 
         public MeetingRoom()
         {
             Name = "test";
-            ID = _tempID++;
+            ID = _CountID++;
             Capacity = 0;
-            Whiteboard = false;
-            SmartBoard = false;
+            Tavle = false;
+            Projecter = false;
+            Kaffemaskine = false;
         }
 
 
@@ -32,10 +34,11 @@ namespace Dsv_Project_v3.Models
         }
 
         // In depth Constructor with all proterties
-        public MeetingRoom(string name, int cap, bool whiteboard, bool smartboard) : this(name, cap)
+        public MeetingRoom(string name, int cap, bool tavle, bool projecter, bool kaffemaskine): this(name, cap)
         {
-            Whiteboard = whiteboard;
-            SmartBoard = smartboard;
+            Tavle = tavle;
+            Projecter = projecter;
+
         }
     }
 }

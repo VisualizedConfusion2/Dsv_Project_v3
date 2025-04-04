@@ -3,70 +3,62 @@
 @{
     ViewData["Title"] = "";
 }
-<!--Filtrering-->
-<header class="container-fluid bg-light">
 
+<header class="container-fluid bg-light">
     <h3 style="font-weight: bold; color: #192862">Filtrering</h3>
     <form method="post" asp-page-handler="Filter" name="Filter" id="Filter">
-
-        <label for="filterWB" class="control-label">Whiteboard: </label>
-        <input class="me-4" asp-for="filterWB" type="checkbox" id="whiteboard" name="filterWB" value="true">
-        <label for="filterSB" class="control-label">Smartboard: </label>
-        <input class="me-4" asp-for="filterSB" type="checkbox" id="smartboard" name="filterSB" value="true">
+        <label for="filterWB" class="control-label">Tavle: </label>
+        <input class="me-4" asp-for="filterWB" type="checkbox" id="tavle" name="filterWB" value="true">
+        <label for="filterSB" class="control-label">Projecter: </label>
+        <input class="me-4" asp-for="filterSB" type="checkbox" id="projecter" name="filterSB" value="true">
+        <label for="filterSB" class="control-label">Kaffemaskine: </label>
+        <input class="me-4" asp-for="filterSB" type="checkbox" id="kaffemaskine" name="filterSB" value="true">
         <label for="filterCap" class="control-label">Antal deltagere: </label>
         <input class="" asp-for="filterCap" type="number" id="capacity" name="filterCap" value="0" />
         <button type="submit" class="btn btn-primary">Filtrér</button>
     </form>
-
 </header>
 
 <div class="container">
-    <!--ROOM CARDS-->
-    <div class="row row-cols-3">
-        @foreach (var room in Model.Rooms)
-        {
+    <table class="table table-striped mt-3">
+        <thead>
+            <tr>
+                <th>Lokale</th>
+                <th>Kapacitet</th>
+                <th>Tavle</th>
+                <th>Projektor</th>
+                <th>Kaffemaskine</th>
+                <th>Tidsrum</th>
+                <th>Handling</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var room in Model.Rooms)
+            {
+                <tr>
+                    <td><b>@room.Name</b></td>
+                    <td>@room.Capacity personer</td>
+                    <td>@(room.Tavle ? "+" : "-")</td>
+                    <td>@(room.Projecter ? "+" : "-")</td>
+                    <td>@(room.Kaffemaskine ? "+" : "-")</td>
+                    <td>
+                        @for (int i = 6; i < 18; i++)
+                        {
+                            var bgColor = Model.BookChecker(i, room.ID) ? "color: red;" : "color: green;";
+                            <span style="@bgColor">@i:00-@i:59</span>
 
-
-            <form method="post">
-                <div class="col">
-                    <div class="card shadow-sm mt-3">
-                        <div class="card-body text-start">
-
-                            <h5 class="card-title text-center"><b>@room.Name</b></h5>
-                            <p class="card-text"><i>Max @room.Capacity personer.</i></p>
-                            <div class="row">
-                                <div class="col mt-1">
-                                    <p class="card-text">Max: @room.Capacity personer </p>
-                                    <p class="card-text">Whiteboard @(room.Whiteboard ? "+" : "-")</p>
-                                    <p class="card-text">Smartboard: @(room.SmartBoard ? "+" : "-")</p>
-
-                                </div>
-
-                                <div class="col">
-                                    <div class="d-flex justify-content-end gap-3 mt-2">
-                                        <input type="hidden" value="@room.ID" name="idroom" />
-                                        <button class="btn btn-outline-primary" title="Book">
-                                            Book room
-                                        </button>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class=" row row-cols-5">
-                            @for (int i = 7; i < 17; i++)
-                            {
-                                var bgColor = Model.BookChecker(i, room.ID) ? "color: red;" : "color: green;";
-                                <div class="col text-center" style="@bgColor">
-                                    <p>@i:00</p>
-                                </div>
-                            }
-                        </div>
-                    </div>
-                </div>
-            </form>
-
-
-        }
-    </div>
+                            <br />
+                        }
+                    </td>
+                    <td>
+                        <form method="post">
+                            <input type="hidden" value="@room.ID" name="idroom" />
+                            <button class="btn btn-outline-primary" title="Book">Book room</button>
+                        </form>
+                    </td>
+                </tr>
+            }
+        </tbody>
+    </table>
 </div>
  

@@ -13,9 +13,10 @@ namespace Dsv_Project_v3
             // Add services to the container.
             builder.Services.AddRazorPages();
 
-            builder.Services.AddSingleton<IRoomRepo>();
+            builder.Services.AddSingleton<IRoomRepo, RoomRepo>();
             builder.Services.AddSingleton<IBookingRepo, BookingCollectionRepo>();
             builder.Services.AddSingleton<RoomServices>();
+            builder.Services.AddSingleton<BookingService>(); // Add this line
 
             var app = builder.Build();
 
@@ -23,7 +24,6 @@ namespace Dsv_Project_v3
             if (!app.Environment.IsDevelopment())
             {
                 app.UseExceptionHandler("/Error");
-                // The default HSTS value is 30 days. You may want to change this for production scenarios, see https://aka.ms/aspnetcore-hsts.
                 app.UseHsts();
             }
 
